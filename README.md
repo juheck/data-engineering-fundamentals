@@ -70,14 +70,7 @@ print(list[0:4])  # 0, 1, 2, 3
 
 Also, note that it is not necessary to specify the last or the first index explicitly, you can simply leave the **_end_** or **_start_** index blank respectively.
 
-```list[start:] 
+```list[start:] : means all numbers greater than start uptil the range
+list[:end] : means all numbers less than end uptil the range
+list[:] : means all numbers within the range
 ```
-: means all numbers greater than start uptil the range
-
-```list[:end]
-```
-: means all numbers less than end uptil the range
-
-```list[:] 
-```
-: means all numbers within the range
