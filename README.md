@@ -50,3 +50,34 @@ list.pop(2)
 print(list) #  [1, 3, 'seven']
 ```
 
+### Slicing
+
+In Python, we can use square brackets and a colon to define a range of elements within a list that you want to access or ‘slice’.
+
+```python
+list[start:end]
+```
+
+1. Indexing elements of a list
+
+List elements can be indexed and printed as in the following code example:
+
+```python
+list = list(range(10))
+print(list)  # 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+print(list[0:4])  # 0, 1, 2, 3
+```
+
+Also, note that it is not necessary to specify the last or the first index explicitly, you can simply leave the **_end_** or **_start_** index blank respectively.
+
+```list[start:] 
+```
+: means all numbers greater than start uptil the range
+
+```list[:end]
+```
+: means all numbers less than end uptil the range
+
+```list[:] 
+```
+: means all numbers within the range
