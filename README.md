@@ -41,13 +41,40 @@ print(list) # [2, 1, 3, 5, 'seven']
 ### Pop()
 
 Removes the element at given index. If no index is given, then it removes the last element. 
-So list.pop() would remove the last element.
+So **_list.pop()_** would remove the last element.
 
 ```python
 list = [1, 3, 5, 'seven']
 print(list) # [1, 3, 5, 'seven']
 list.pop(2)
 print(list) #  [1, 3, 'seven']
+```
+
+### Sorted()
+
+Sorted() sorts any sequence (list, tuple) and always returns a list with the elements in a sorted manner, without modifying the original sequence.
+
+```
+sorted(iterable, key=key, reverse=reverse)
+```
+| iterable | Required. The sequence to sort, list, dictionary, tuple etc.
+| key | Optional. A Function to execute to decide the order. Default is None
+| reverse | Optional. A Boolean. False will sort ascending, True will sort descending. Default is False
+
+```python
+# Sort a list of integers based on
+# their remainder on dividing from 7
+def func(x):
+    return x % 7
+ 
+L = [15, 3, 11, 7]
+ 
+print("Normal sort :", sorted(L))
+print("Sorted with key:", sorted(L, key=func))
+```
+```
+Normal sort : [3, 7, 11, 15]
+Sorted with key: [7, 15, 3, 11]
 ```
 
 ### Slicing
@@ -189,6 +216,9 @@ my_list = [x for x in my_list if x % 2 == 0]
 ```
 my_list: [2, 6, 14]
 ```
+
+## Dictionaries
+
 
 ## Useful string functions
 
