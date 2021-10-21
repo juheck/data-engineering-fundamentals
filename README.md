@@ -165,3 +165,38 @@ arr[-1] # stack.peek()
 
 ### List Comprehensions
 
+A list comprehension looks a bit like a for loop except the output comes first. The comprehension is contained inside brackets to remind us that it returns a list.
+
+```
+Syntax: [Output for variable in list]
+Example: [x+1 for x in [1,2,3]]
+Result: [2,3,4]
+```
+
+You can optionally add a filter at the end in the form of a traditional if statement. Additional syntax is also accepted for more complex comprehensions.
+
+```
+Syntax: [Output for variable in list condition]
+Example: [x+1 for x in [1,2,3] if x > 1]
+Result: [3,4]
+```
+
+
+```python
+my_list = [5, 9, 2, 6, 11, 14]
+my_list = [x for x in my_list if x % 2 == 0]
+```
+```
+my_list: [2, 6, 14]
+```
+
+## Useful string functions
+
+### len()
+
+### split()
+
+### isdigit()
+
+### upper()/lower()
+
