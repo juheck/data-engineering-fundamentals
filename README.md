@@ -77,6 +77,44 @@ Normal sort : [3, 7, 11, 15]
 Sorted with key: [7, 15, 3, 11]
 ```
 
+### Enumerate()
+
+Enumerate() method adds a counter to an iterable and returns it in a form of enumerating object. This enumerated object can then be used directly for loops or converted into a list of tuples using the list() method.
+```
+enumerate(iterable, start=0)
+```
+| Iterable | any object that supports iteration
+| Start | the index value from which the counter is to be started, by default it is 0
+
+```python
+# Python program to illustrate
+# enumerate function in loops
+l1 = ["eat","sleep","repeat"]
+ 
+# printing the tuples in object directly
+for ele in enumerate(l1):
+    print (ele)
+print
+ 
+#getting desired output from tuple
+for count,ele in enumerate(l1):
+  print(count)
+  print(ele)
+```
+
+```
+(0, 'eat')
+(1, 'sleep')
+(2, 'repeat')
+
+0
+eat
+1
+sleep
+2
+repeat
+```
+
 ### Slicing
 
 In Python, we can use square brackets and a colon to define a range of elements within a list that you want to access or ‘slice’.
@@ -218,6 +256,102 @@ my_list: [2, 6, 14]
 ```
 
 ## Dictionaries
+
+A dictionary in python is a mapping object that maps keys to values, where the keys are unique within a collection and the values can hold any arbitrary value. In addition to being unique, keys are also required to be hashable.
+
+A dictionary’s data is always enclosed by a pair of curly braces **_{ }_**, and would normally look like this:
+
+```python
+my_dict = {"first_name": "John", "last_name":"Snow", "age":16, "gender":"Male"}
+```
+
+### Accessing items
+
+To access a particular value in a dictionary we use the indexing operator (key inside square brackets). However, to use this method, we need to make sure the key we intend to retrieve exists.
+But we have a better tool: the **_get()_** method. This method works by giving out a value if the key exists, or returning _None_.
+```python
+my_dict.get("first_name") # John
+my_dict.get("salary") # None
+```
+
+### Modification
+
+Dictionaries can be modified directly using the keys or using the **_update()_** method. **_update()_** takes in a dictionary with the key-value pairs to be modified or added.
+
+```python
+# Adding a new entry for salary using the index
+my_dict["salary"] = 10000
+
+# Modifying the entry for last_name using the index
+my_dict["last_name"] = "Edwards"
+
+# Modifying the salary entry using update
+my_dict.update({"salary":20000})
+```
+
+A particularly nice use case for update() is when we need to merge two dictionaries:
+
+```python
+extra_info = {
+  "verified":True,
+  "qualification":"Undergraduate Degree",
+  "taxable":True}
+
+# Merge extra_info with my_dict
+my_dict.update(extra_info)
+```
+
+### Deletion
+
+Use **_del()_**
+
+```python
+del my_dict["salary"]
+
+my_dict.clear() # returns empty dictionary
+```
+
+### Iteration
+
+A dictionary by itself is an iterable of its keys. Moreover, we can iterate through dictionaries in 3 different ways:
+- dict.values() - this returns an iterable of the dictionary's values.
+- dict.keys() - this returns an iterable of the dictionary's keys.
+- dict.items() - this returns an iterable of the dictionary's (key,value) pairs.
+
+```python
+my_dict = {"first_name": "John", "last_name":"Snow", "age":16, "gender":"Male"}
+
+print(my_dict.values()) # dict_values(['John', 'Snow', 16, 'Male'])
+print(my_dict.keys()) # dict_keys(['first_name', 'last_name', 'age', 'gender'])
+print(my_dict.items()) # dict_items([('first_name', 'John'), ('last_name', 'Snow'), ('age', 16), ('gender', 'Male')])
+
+for key,val in my_dict.items():
+    print(key, val) #print the keys and values of item
+```
+```
+first_name John
+last_name Snow
+age 16
+gender Male
+```
+
+### Sorting
+
+Calling the **_sorted()_** function and passing it a dictionary only returns a list of the keys in a sorted order, since the dictionary is an iterable of its keys.
+If we use the **_items()_** iterable we could sort the items of our dictionary as we please. However, this doesn't give us our original dictionary, but a list of key-value tuples in a sorted order.
+
+```python
+my_dict = {"first_name": "John", "last_name":"Snow", "age":16, "gender":"Male"}
+# Using sorted() to sort a dictionary's items on the keys
+for key,val in sorted(my_dict.items(),key=lambda item:item[0]):
+    print(key, val) #print the keys and values of each item
+```
+```
+age 16
+first_name John
+gender Male
+last_name Snow
+```
 
 
 ## Useful string functions
