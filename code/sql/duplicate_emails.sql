@@ -20,3 +20,12 @@ select email, row_number() OVER (PARTITION BY email) as row_nb
 from `first_project_bq_dataset.Person`
 )
 where row_nb >= 2
+;
+
+-- better version:
+
+select email
+from `first_project_bq_dataset.Person`
+group by email
+having count(email) > 1
+

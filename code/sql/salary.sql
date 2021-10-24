@@ -34,3 +34,4 @@ INSERT INTO first_project_bq_dataset.Department
 VALUES (1, 'IT'),
 (2, 'Sales')
 ;
+
