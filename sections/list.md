@@ -53,9 +53,9 @@ Sorted() sorts any sequence (list, tuple) and always returns a list with the ele
 ```
 sorted(iterable, key=key, reverse=reverse)
 ```
-| iterable | Required. The sequence to sort, list, dictionary, tuple etc.
-| key | Optional. A Function to execute to decide the order. Default is None
-| reverse | Optional. A Boolean. False will sort ascending, True will sort descending. Default is False
+| iterable | Required. The sequence to sort, list, dictionary, tuple etc. |
+| key | Optional. A Function to execute to decide the order. Default is None |
+| reverse | Optional. A Boolean. False will sort ascending, True will sort descending. Default is False |
 
 ```python
 # Sort a list of integers based on
@@ -79,8 +79,8 @@ Enumerate() method adds a counter to an iterable and returns it in a form of enu
 ```
 enumerate(iterable, start=0)
 ```
-| Iterable | any object that supports iteration
-| Start | the index value from which the counter is to be started, by default it is 0
+| Iterable | any object that supports iteration |
+| Start | the index value from which the counter is to be started, by default it is 0 |
 
 ```python
 # Python program to illustrate
@@ -113,6 +113,7 @@ repeat
 
 ### Isinstance()
 
+Returns True if the object is specified types, and it will not match then return False. 
 
 ### Extend()
 
