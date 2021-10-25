@@ -20,17 +20,6 @@ Can you find out which customers have bought products from both the
 */
 
 /*
-Q1. what %age of products have both low fat and recycable.
-
-Q2. find top 5 sales products having promotions
-
-Q3. what %age of sales happened on first and last day of the promotion
-Not sure if this asked for all promotions or % for each promotion. in case all -
-
-
-Q4. Which product had the highest sales with promotions and sales (basically a where clause on 2 flags)
-
-
 Q5. What are the top five (ranked in decreasing order) single-channel media types that correspond 
 to the most money the grocery chain had spent on its promotional campaigns?
 
@@ -81,3 +70,60 @@ CREATE TABLE first_project_bq_dataset.product_classes (
     product_department string,
     product_family string
 );
+
+
+-- 1. what %age of products have both low fat and recycable.
+
+ with flag_total as (
+    Select 
+        SUM (CASE when is_low_fat_flg =1 and is_recyclable_flg =1 then 1 else 0 end) as flag_count,
+        count(distinct product_id) as prod_count
+   from products
+ )
+
+  select 
+      flag_count/ prod_count * 100 as percent
+ from flag_total
+ ;
+
+ /* 2. Find top 5 sales products having promotions
+*/
+
+ select product_id 
+ from sales
+ where promotion_id is not null
+ group by product_id
+ order by sum(store_cost * units_sold) desc
+ limit 5
+ ;
+
+
+/*
+3. What %age of sales happened on first and last day of the promotion
+Not sure if this asked for all promotions or % for each promotion. in case all -
+*/
+ select s.promotion_id,
+ round((sum(case when s.transaction_date = (p.promo_start_date) 
+            or s.transaction_date = (p.promo_end_date) then (store_cost * units_sold) else 0 end) * 100.0
+ / sum((store_cost * units_sold))),2)
+ from sales s inner join  promotion p -- left join? 
+ on p.promotion_id = s.promotion_id 
+ group by s.promotion_id
+ ;
+
+
+ /* 4. Which product had the highest sales with promotions and sales 
+ */
+
+
+/* We want to run a new promotion for our most successful category of products
+(we call these categories “product classes”).
+Can you find out what are the top 3 selling product classes by total sales?
+*/
+
+select p.product_class_id, sum(store_cost * units_sold)
+from products p join sales 
+on p.product_id = s.product_id
+group by p.product_class_id
+order by sum(store_cost * units_sold) desc
+limit 3

@@ -11,8 +11,8 @@ CREATE TABLE first_project_bq_dataset.Routes (
 );
 
 INSERT INTO first_project_bq_dataset.Routes 
-VALUES (A, B),
-(C, D),
-(B, A),
-(C, D)
+VALUES ('A', 'B'),
+('C', 'D'),
+('B', 'A'),
+('C', 'D')
 ;
