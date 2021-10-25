@@ -111,6 +111,12 @@ sleep
 repeat
 ```
 
+### Isinstance()
+
+
+### Extend()
+
+
 ### Slicing
 
 In Python, we can use square brackets and a colon to define a range of elements within a list that you want to access or ‘slice’.
