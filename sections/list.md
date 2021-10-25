@@ -22,6 +22,15 @@ list.append(9)
 print(list) # [1, 3, 5, 'seven', 9]
 ```
 
+### Extend()
+
+Iterates over its argument and adding each element to the list and extending the list. The length of the list increases by number of elements in it’s argument.
+```python
+my_list = ['geeks', 'for']
+another_list = [6, 0, 4, 1]
+my_list.extend(another_list)
+print(my_list) # ['geeks', 'for', 6, 0, 4, 1]
+```
 
 ### Insert()
 
@@ -53,6 +62,8 @@ Sorted() sorts any sequence (list, tuple) and always returns a list with the ele
 ```
 sorted(iterable, key=key, reverse=reverse)
 ```
+| Parameter | Description |
+| --------- | ----------- |
 | iterable | Required. The sequence to sort, list, dictionary, tuple etc. |
 | key | Optional. A Function to execute to decide the order. Default is None |
 | reverse | Optional. A Boolean. False will sort ascending, True will sort descending. Default is False |
@@ -79,6 +90,8 @@ Enumerate() method adds a counter to an iterable and returns it in a form of enu
 ```
 enumerate(iterable, start=0)
 ```
+| Parameter | Description |
+| --------- | ----------- |
 | Iterable | any object that supports iteration |
 | Start | the index value from which the counter is to be started, by default it is 0 |
 
@@ -114,8 +127,22 @@ repeat
 ### Isinstance()
 
 Returns True if the object is specified types, and it will not match then return False. 
+```
+isinstance(obj, class)
+```
+| Parameter | Description |
+| --------- | ----------- |
+| obj | The object that need to be checked as a part of class or not. |
+| class | class/type/tuple of class or type, against which object is needed to be checked. |
+| Returns | True, if object belongs to the given class/type if single class is passed or any of the class/type if tuple of class/type is passed, else returns False. Raises TypeError: if anything other than mentioned valid class type. |
 
-### Extend()
+```python
+test_list = [1, 2, 3]
+if isinstance(test_list, list):
+  print('It is a list')
+else:
+  print('It is not a list')
+```
 
 
 ### Slicing
