@@ -31,3 +31,10 @@
 # Example 5:
 # Input: s = "Alice does not even like bob"
 # Output: "bob like even not does Alice"
+
+s = "Alice does not even like bob"
+
+lst_words = s.split()
+rev_list = lst_words[::-1]
+output_list = " ".join( i for i in rev_list)
+print(output_list)

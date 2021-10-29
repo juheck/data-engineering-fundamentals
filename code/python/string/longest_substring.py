@@ -25,4 +25,33 @@
 # Output: 0
 
 
+s = "abcabcbb"
+
+def longest_substr(s):
+    last_idx = {}
+    max_len = 0
+
+    start_idx = 0
+
+    for i in range(len(s)):
+        print("Loop {}".format(str(i)))
+        # Find the last index of s[i]
+        # Update start_idx (starting index of current window)
+        # as maximum of current value of start_idx and last index plus 1
+        if s[i] in last_idx:
+            print(s[i])
+            print(start_idx)
+            print( last_idx[s[i]] + 1)
+            start_idx = max(start_idx, last_idx[s[i]] + 1)
+        
+        # update results if we get a larger window
+        max_len = max(max_len, i-start_idx + 1)
+
+        # update last index of current char
+        last_idx[s[i]] = i
+
+    return max_len
+
+res = longest_substr(s)
+
     

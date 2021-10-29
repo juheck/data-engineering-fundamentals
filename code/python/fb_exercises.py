@@ -17,7 +17,7 @@ print(len(res))
 # - output array: [1,1,2,3,3,3,5,5]
 # [None]
 # [None,1,2] ==> [None,1,2]
-# [1,None,2] ==> [1,2,2]
+# [1,None,2] ==> [1,1,2]
 # [1,4,None,None,3]===> [1,4,4,4,3]
 
 arr=[None,1,2,None]
@@ -38,6 +38,8 @@ print(new_l)
 # - string 2 : "Next is the second string" 
 # - output : ['Firstly', 'this', 'first', 'Next', 'second']
 
+
+# this does not work for some cases !!!
 A = "Geeks for Geeks"
 B = "Learning from Geeks for Geeks"
 d={}
@@ -51,9 +53,34 @@ for w in B.split():
         d[w]=d.get(w,0)+1
     else:
         d[w]=1
-    unmatchedW=[w for w in d if d[w]==1]
+unmatchedW=[w for w in d if d[w]==1]
 print (unmatchedW)
 
+
+# Other solution:
+A = "Gees for Gees"
+B = "Learning from Geeks for Geeks"
+d_a={}
+d_b={}
+res = []
+
+for w in A.split():
+    if w not in d_a.keys():
+        d_a[w] = 1
+    
+for w in B.split():
+    if w not in d_b.keys():
+        d_b[w] = 1
+
+for w in d_a.keys():
+    if w not in d_b.keys():
+        res.append(w)
+
+for w in d_b.keys():
+    if w not in d_a.keys():
+        res.append(w)
+
+print(res)
 
 # 4. Calculate the average word length.
 # For the given set of words return the average word length.
