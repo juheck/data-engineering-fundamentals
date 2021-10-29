@@ -20,6 +20,7 @@ print(len(res))
 # [1,None,2] ==> [1,1,2]
 # [1,4,None,None,3]===> [1,4,4,4,3]
 
+# Wrong in some cases : [None,1,2,2], [1,None,2,3,None,None,5,None]
 arr=[None,1,2,None]
 new_l=[]
 for i in range(0,len(arr)):
@@ -30,6 +31,14 @@ for i in range(0,len(arr)):
 
 print(new_l)
 
+# better solution:
+def fill_none(arr):
+    for i in range(1,len(arr)):
+        if arr[i] == None:
+            arr[i] = arr[i-1]
+    return arr   
+
+print(fill_none(arr))
 
 
 # 3. Given two sentences, construct an array that has the words that appear in one sentence and not the other.
