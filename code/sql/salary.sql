@@ -35,3 +35,13 @@ VALUES (1, 'IT'),
 (2, 'Sales')
 ;
 
+
+
+select DepartmentId, 
+sum(case when DepartmentId = 1 and Salary > 70000 then 1 
+when DepartmentId = 2 and Salary > 50000 then 1 
+else 0
+end) salary_cnt
+from `first_project_bq_dataset.Employee`
+group by DepartmentId
+;

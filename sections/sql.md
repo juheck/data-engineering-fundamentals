@@ -66,7 +66,17 @@ NOTE: When using **ROW_NUMBER**, each row will have a unique rank number and ra
 
 - **LAG /LEAD**: It retrieves column values from a preceding or following row based on a specified order and partition group.
 
-(window function examples)
+```sql
+select Department, Employee, Salary from(
+select b.Name as Department, a.Name as Employee, a.Salary
+,dense_rank() OVER (PARTITION BY  DepartmentId ORDER BY Salary desc) as salary_rank
+from Employee a
+join Department b
+ON b.Id = a.DepartmentId
+)
+where salary_rank <= 3
+order by Department, Salary
+```
 
 
 ### LAG/LEAD
